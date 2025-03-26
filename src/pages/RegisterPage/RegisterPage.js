@@ -39,7 +39,7 @@ const RegisterPage = () => {
       toast.error(message);
       dispatch(clearError());
     }
-  }, [error, user, message]);
+  }, [error, user, message,isAuth,navigate]);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();

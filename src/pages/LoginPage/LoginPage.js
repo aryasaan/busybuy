@@ -37,7 +37,7 @@ const LoginPage = () => {
       toast.error(message);
       dispatch(clearError());
     }
-  }, [error, user]);
+  }, [error, user,dispatch,isAuth,message,navigate]);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
