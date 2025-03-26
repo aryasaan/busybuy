@@ -12,7 +12,7 @@ import Logout from "../../assets/Log Out.png";
 import Cart from "../../assets/cart.png";
 
 const Navbar = () => {
-  const [click, setClick] = useState(false);
+  let click = false;
   const dispatch = useDispatch();
 
   const user = useSelector(getUser);

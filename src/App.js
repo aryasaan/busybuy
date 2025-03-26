@@ -25,7 +25,7 @@ function App() {
         dispatch(setAuthUser({ user }));
       }
     });
-  }, [dispatch]);
+  }, [dispatch,auth]);
 
   return (
     <div className="App">
