@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { db } from "../../config/firebase";
 import { getDoc, doc } from "firebase/firestore";
 import { useSelector } from "react-redux";
@@ -16,7 +16,8 @@ const OrdersPage = () => {
   const user = useSelector(getUser);
 
   // Fetch user orders from firestore
-  const getOrders = async () => {
+  const getOrders = useCallback(async () => {
+    if (!user) return;
     setLoading(true);
     try {
       const docRef = doc(db, "userOrders", user.uid);
@@ -51,11 +52,11 @@ const OrdersPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
 
   useEffect(() => {
     getOrders();
-  }, [user]);
+  }, [user, getOrders]);
 
   if (loading) {
     return <Loader />;
