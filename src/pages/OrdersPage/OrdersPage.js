@@ -55,7 +55,7 @@ const OrdersPage = () => {
 
   useEffect(() => {
     getOrders();
-  }, [user]);
+  }, [user,getOrders]);
 
   if (loading) {
     return <Loader />;
