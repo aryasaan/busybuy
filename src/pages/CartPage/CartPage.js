@@ -31,7 +31,7 @@ const CartPage = () => {
 
   useEffect(() => {
     dispatch(fetchCartProducts({ uid: user?.uid }));
-  }, [user]);
+  }, [user,dispatch]);
 
   const purchaseProductsHandler = async () => {
     try {
